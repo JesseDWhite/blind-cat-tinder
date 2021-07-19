@@ -5,6 +5,7 @@ import { makeApiCall } from '../actions';
 class ProfileControl extends React.Component {
   constructor(props) {
     super(props)
+
   }
 
   componentDidMount() {
@@ -17,18 +18,20 @@ class ProfileControl extends React.Component {
     if (error) {
       return <>Error: {error.message}</>
     } else if (isLoading) {
-      return <><img src='https://media.giphy.com/media/3o7btYzX9GycbDy7bW/giphy.gif' width='200px' alt='cat with sunglasses'></img></>
+      return <><img src='https://media.giphy.com/media/3o7btYzX9GycbDy7bW/giphy.gif' width='200px' alt='cat with sunglasses smoking'></img></>
+      // Look up  Material UI or Semantic UI (React specifically)
     } else {
       return (
         <>
           <ul>
-            {profiles.map((profile, index) =>
-              <li key={index}>
-                <h3>{profile.AnimalName}</h3>
-                <p>{profile.AnimalType}</p>
-                <p>{profile.Gender}</p>
-                <p>{profile.Age}</p>
-                <p>{profile.Description}</p>
+            {profiles.map((profile, animalId) =>
+              <li key={animalId}>
+                <img src={profile.profilePicture} width='250px' alt='animal profile picture' className='profilePicture'></img>
+                <h3>{profile.animalName}</h3>
+                <p>{profile.animalType}</p>
+                <p>{profile.gender}</p>
+                <p>{profile.age}</p>
+                <p>{profile.description}</p>
               </li>
             )}
           </ul>

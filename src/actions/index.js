@@ -17,11 +17,14 @@ export const getProfilesFailure = (error) => ({
 export const makeApiCall = () => {
   return dispatch => {
     dispatch(requestedProfiles);
-    return fetch(`${process.env.REACT_APP_API_KEY}`)
-      .then(response => response.json())
+    return fetch(`http://localhost:5004/api/animals/`)
+      .then(function (response) {
+        return response.json()
+      })
       .then(
-        (jsonifiedResponse) => {
-          dispatch(getProfilesSuccess(jsonifiedResponse.results));
+        function (jsonifiedResponse) {
+          console.log(jsonifiedResponse)
+          return dispatch(getProfilesSuccess(jsonifiedResponse));
         })
       .catch((error) => {
         dispatch(getProfilesFailure(error));

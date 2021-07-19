@@ -1,9 +1,9 @@
 /* eslint-disable import/no-anonymous-default-export */
-import * as c from './../actions/ActionsTypes';
+import * as c from './../actions/ActionTypes';
 
 let initialState = {
   isLoading: false,
-  headlines: [],
+  profiles: [],
   error: null
 }
 
