@@ -4,11 +4,18 @@ import PropTypes from 'prop-types';
 function Profile(props) {
   return (
     <>
-      <div>
-        <img src={props.profilePicture} width='350px' alt='profile picture'></img>
-        <h2>{props.animalName}</h2>
-        <h4>{props.gender} - {props.age}</h4>
-        <button onClick={() => props.viewProfile(props.id)}>View Profile</button>
+      <div className='profileCard'>
+        <div className='card'>
+          <img src={props.profilePicture} alt='profile' className='profilePicture'></img>
+          <h2>{props.animalName}</h2>
+          <h4>{props.gender} - Age {props.age}</h4>
+          <p>{props.animalId}</p>
+          <div className='card bioCard'>
+            <h5>Bio</h5>
+            <em>{props.description}</em>
+          </div>
+          <button className='btn btn-danger' onClick={() => props.viewProfile(props.animalId)}>View Profile</button>
+        </div>
       </div>
     </>
   )
@@ -19,7 +26,8 @@ Profile.propTypes = {
   animalName: PropTypes.string,
   gender: PropTypes.string,
   age: PropTypes.number,
-  description: PropTypes.string
+  animalId: PropTypes.number,
+  viewProfile: PropTypes.func
 }
 
 export default Profile;

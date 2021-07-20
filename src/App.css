@@ -1,3 +1,54 @@
 .profilePicture {
+  width: 300px;
+  height: 300px;
+  background-size: cover;
+  background-position: center;
   border-radius: 100%;
+}
+
+h1, h4{
+  text-align: center;
+}
+
+h2 {
+  font-family: 'Caveat', cursive;
+  font-size: 50px;
+  text-align: center;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 30px;
+}
+
+.card {
+  justify-content: center;
+  padding: 30px;
+  border-radius: 15px;
+  border: none;
+  max-width: 800px;
+  background-color: rgba(240, 248, 255, 0.479);
+  box-shadow:15px 10px 8px #0000001c;
+}
+
+.bioCard {
+  margin-bottom: 30px;
+}
+
+.profileCard {
+  margin: 30px;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+body {
+  background-image: linear-gradient(rgb(255, 79, 79),rgb(255, 191, 72));
+}
+
+.profilePicture {
+  margin-right: auto;
+  margin-left: auto;
 }

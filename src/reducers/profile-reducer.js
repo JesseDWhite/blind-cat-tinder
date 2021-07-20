@@ -4,7 +4,8 @@ import * as c from './../actions/ActionTypes';
 let initialState = {
   isLoading: false,
   profiles: [],
-  error: null
+  error: null,
+  selectedProfile: null
 }
 
 export default (state = initialState, action) => {
@@ -23,6 +24,11 @@ export default (state = initialState, action) => {
         isLoading: false,
         error: action.error
       });
+    // case c.GET_PROFILE:
+    //   return Object.assign({}, state, {
+    //     isLoading: false,
+    //     selectedProfile: action.selectedProfile
+    //   })
     default:
       return state;
   }

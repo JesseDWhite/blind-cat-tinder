@@ -2,6 +2,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { makeApiCall } from '../actions';
 import ProfileList from './ProfileList';
+import ProfileDetails from './ProfileDetails';
+
 
 class ProfileControl extends React.Component {
   constructor(props) {
@@ -16,40 +18,35 @@ class ProfileControl extends React.Component {
     dispatch(makeApiCall());
   }
 
-  viewProfile(id) {
-    const selectedProfile = this.state.materProfileList[id];
+  viewProfile(animalId) {
+    const selectedProfile = this.props.profiles[animalId]
     this.setState({
       selectedProfile: selectedProfile
     });
   }
 
   render() {
-    let currentlyVisisbleState = null;
+    let currentlyVisibleState = null;
     const { error, isLoading } = this.props
     if (error) {
       return <>Error: {error.message}</>
     } else if (isLoading) {
       return <><img src='https://media.giphy.com/media/3o7btYzX9GycbDy7bW/giphy.gif' width='200px' alt='cat with sunglasses smoking'></img></>
       // Look up  Material UI or Semantic UI (React specifically)
+    } else if (this.state.selectedProfile != null) {
+      currentlyVisibleState =
+        <ProfileDetails
+        // profiles={this.props.selectedProfile}
+        />;
+
     } else {
-      currentlyVisisbleState = <ProfileList
-        viewProfile={this.state.viewProfile}
+      currentlyVisibleState = <ProfileList
+        profiles={this.props.profiles}
+        viewProfile={this.viewProfile}
       />
       return (
         <>
-          {currentlyVisisbleState}
-          {/* <ul>
-            {profiles.map((profile, animalId) =>
-              <li key={animalId}>
-                <img src={profile.profilePicture} width='250px' alt='animal profile picture' className='profilePicture'></img>
-                <h3>{profile.animalName}</h3>
-                <p>{profile.animalType}</p>
-                <p>{profile.gender}</p>
-                <p>{profile.age}</p>
-                <p>{profile.description}</p>
-              </li>
-            )}
-          </ul> */}
+          {currentlyVisibleState}
         </>
       )
     }
@@ -60,7 +57,8 @@ const mapStateToProps = state => {
   return {
     profiles: state.profiles,
     isLoading: state.isLoading,
-    error: state.error
+    error: state.error,
+    selectedProfile: state.selectedProfile
   }
 }
 
