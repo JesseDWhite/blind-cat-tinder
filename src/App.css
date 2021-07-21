@@ -6,7 +6,7 @@
   border-radius: 100%;
 }
 
-h1, h4{
+h1, h4, h5{
   text-align: center;
 }
 
@@ -46,9 +46,17 @@ h2 {
 
 body {
   background-image: linear-gradient(rgb(255, 79, 79),rgb(255, 191, 72));
+  background-attachment: fixed;
+  min-height: 100%;
 }
 
 .profilePicture {
   margin-right: auto;
   margin-left: auto;
 }
+
+.likeButton {
+  width: 150px;
+  margin-bottom: 25px;
+}
+

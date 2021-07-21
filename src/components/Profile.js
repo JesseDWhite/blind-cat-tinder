@@ -9,10 +9,7 @@ function Profile(props) {
           <img src={props.profilePicture} alt='profile' className='profilePicture'></img>
           <h2>{props.animalName}</h2>
           <h4>{props.gender} - Age {props.age}</h4>
-          <div className='card bioCard'>
-            <h5>Bio</h5>
-            <em>{props.description}</em>
-          </div>
+          <h5>{props.animalType}</h5>
           <button className='btn btn-danger' onClick={() => props.viewProfile(props.currentProfile)}>View Profile</button>
         </div>
       </div>

@@ -5,7 +5,8 @@ let initialState = {
   isLoading: false,
   profiles: [],
   error: null,
-  selectedProfile: null
+  selectedProfile: null,
+  likeProfile: false
 }
 
 export default (state = initialState, action) => {
@@ -34,6 +35,11 @@ export default (state = initialState, action) => {
         isLoading: false,
         selectedProfile: null
       });
+    case c.LIKE_PROFILE:
+      return Object.assign({}, state, {
+        isLoading: false,
+        likeProfile: true
+      })
     default:
       return state;
   }

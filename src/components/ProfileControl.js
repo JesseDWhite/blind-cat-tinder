@@ -5,7 +5,6 @@ import ProfileList from './ProfileList';
 import ProfileDetails from './ProfileDetails';
 import * as a from '../actions';
 
-
 class ProfileControl extends React.Component {
   constructor(props) {
     super(props)
@@ -31,6 +30,11 @@ class ProfileControl extends React.Component {
     dispatch(action);
   }
 
+  likeProfile = () => {
+    const { dispatch } = this.props;
+    const action = a.likeProfile();
+    dispatch(action);
+  }
 
   render() {
     let currentlyVisibleState = null;
@@ -45,7 +49,9 @@ class ProfileControl extends React.Component {
         <ProfileDetails
           profile={selectedProfile}
           backToMainPage={this.backToMainPage}
+          likeProfile={this.likeProfile}
         />;
+
     } else if (selectedProfile == null) {
       currentlyVisibleState = <ProfileList
         profiles={profiles}

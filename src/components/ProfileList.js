@@ -10,6 +10,7 @@ function ProfileList(props) {
         <Profile
           // Every line below here is a prop (property) of the Profile component. You can define as many as you'd like, name them whatever you want, and pass whatever information you'd like down through it. 
           currentProfile={profile}
+          likeProfile={props.likeProfile}
           viewProfile={props.viewProfile}
           animalName={profile.animalName}
           profilePicture={profile.profilePicture}
@@ -30,7 +31,8 @@ function ProfileList(props) {
 ProfileList.propTypes = {
   profileList: PropTypes.array,
   viewProfile: PropTypes.func,
-  currentProfile: PropTypes.object
+  currentProfile: PropTypes.object,
+  likeProfile: PropTypes.func
 };
 
 export default ProfileList;

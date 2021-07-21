@@ -23,6 +23,10 @@ export const getProfile = (selectedProfile) => ({
   selectedProfile
 });
 
+export const likeProfile = () => ({
+  type: c.LIKE_PROFILE
+})
+
 export const makeApiCall = () => {
   return dispatch => {
     dispatch(requestedProfiles);
