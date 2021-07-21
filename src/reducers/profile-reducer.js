@@ -24,11 +24,11 @@ export default (state = initialState, action) => {
         isLoading: false,
         error: action.error
       });
-    // case c.GET_PROFILE:
-    //   return Object.assign({}, state, {
-    //     isLoading: false,
-    //     selectedProfile: action.selectedProfile
-    //   })
+    case c.GET_PROFILE:
+      return Object.assign({}, state, {
+        isLoading: false,
+        selectedProfile: action.selectedProfile
+      })
     default:
       return state;
   }

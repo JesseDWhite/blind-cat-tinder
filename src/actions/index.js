@@ -14,23 +14,10 @@ export const getProfilesFailure = (error) => ({
   error
 });
 
-// export const getProfile = (id) => {
-//   return dispatch => {
-//     dispatch(requestedProfiles);
-//     return fetch(`http://localhost:5004/api/animals/${id}`)
-//       .then(function (response) {
-//         return response.json()
-//       })
-//       .then(
-//         function (jsonifiedResponse) {
-//           console.log(jsonifiedResponse)
-//           return dispatch(getProfilesSuccess(jsonifiedResponse));
-//         })
-//       .catch((error) => {
-//         dispatch(getProfilesFailure(error));
-//       });
-//   }
-// }
+export const getProfile = (selectedProfile) => ({
+  type: c.GET_PROFILE,
+  selectedProfile
+});
 
 export const makeApiCall = () => {
   return dispatch => {

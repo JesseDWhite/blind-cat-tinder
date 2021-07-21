@@ -3,13 +3,14 @@ import { connect } from 'react-redux';
 import { makeApiCall } from '../actions';
 import ProfileList from './ProfileList';
 import ProfileDetails from './ProfileDetails';
+import * as a from '../actions';
 
 
 class ProfileControl extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      selectedProfile: null
+      // selectedProfile: null
     }
   }
 
@@ -18,40 +19,49 @@ class ProfileControl extends React.Component {
     dispatch(makeApiCall());
   }
 
-  viewProfile(animalId) {
-    const selectedProfile = this.props.profiles[animalId]
-    this.setState({
-      selectedProfile: selectedProfile
-    });
+  viewProfile = (animalProfile) => {
+    console.log(animalProfile)
+    const { dispatch } = this.props;
+    const action = a.getProfile(animalProfile);
+    dispatch(action);
   }
+
+  // viewProfile = (animalProfile) => {
+  //   console.log(animalProfile)
+  //   // Instead, we could pass animalObject (profile itself) to this function instead of just the ID. Then below, we could set selectedProfile to equal that entire object, instead of accessing the `this.props.profiles` (<-- undefined?) state with our id. 
+  //   // const selectedProfile = animalProfile // profile
+  //   this.setState({
+  //     selectedProfile: animalProfile
+  //   });
+  // }
 
   render() {
     let currentlyVisibleState = null;
-    const { error, isLoading } = this.props
+    const { error, isLoading, selectedProfile, profiles } = this.props
     if (error) {
       return <>Error: {error.message}</>
     } else if (isLoading) {
       return <><img src='https://media.giphy.com/media/3o7btYzX9GycbDy7bW/giphy.gif' width='200px' alt='cat with sunglasses smoking'></img></>
       // Look up  Material UI or Semantic UI (React specifically)
-    } else if (this.state.selectedProfile != null) {
+    } else if (selectedProfile != null) {
       currentlyVisibleState =
         <ProfileDetails
-        // profiles={this.props.selectedProfile}
+          profile={selectedProfile}
         />;
-
-    } else {
+    } else if (selectedProfile == null) {
       currentlyVisibleState = <ProfileList
-        profiles={this.props.profiles}
+        profiles={profiles}
         viewProfile={this.viewProfile}
       />
-      return (
-        <>
-          {currentlyVisibleState}
-        </>
-      )
     }
+    return (
+      <>
+        {currentlyVisibleState}
+      </>
+    )
   }
 }
+
 
 const mapStateToProps = state => {
   return {

@@ -5,14 +5,14 @@ function ProfileDetails(props) {
   const { profile } = props;
 
   return (
-    <>
+    <React.Fragment>
       <div>
         <img src={profile.profilePicture} width='350px' alt='profile'></img>
         <h2>{profile.animalName}</h2>
         <h4>{profile.gender} - {profile.age}</h4>
         <p>{profile.description}</p>
       </div>
-    </>
+    </React.Fragment>
   )
 }
 

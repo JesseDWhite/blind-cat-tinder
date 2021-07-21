@@ -8,6 +8,8 @@ function ProfileList(props) {
     <React.Fragment>
       {profiles.map((profile) =>
         <Profile
+          // Every line below here is a prop (property) of the Profile component. You can define as many as you'd like, name them whatever you want, and pass whatever information you'd like down through it. 
+          currentProfile={profile}
           viewProfile={props.viewProfile}
           animalName={profile.animalName}
           profilePicture={profile.profilePicture}
@@ -27,7 +29,8 @@ function ProfileList(props) {
 
 ProfileList.propTypes = {
   profileList: PropTypes.array,
-  viewProfile: PropTypes.func
+  viewProfile: PropTypes.func,
+  currentProfile: PropTypes.object
 };
 
 export default ProfileList;

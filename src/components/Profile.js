@@ -14,7 +14,7 @@ function Profile(props) {
             <h5>Bio</h5>
             <em>{props.description}</em>
           </div>
-          <button className='btn btn-danger' onClick={() => props.viewProfile(props.animalId)}>View Profile</button>
+          <button className='btn btn-danger' onClick={() => props.viewProfile(props.currentProfile)}>View Profile</button>
         </div>
       </div>
     </>
@@ -27,7 +27,8 @@ Profile.propTypes = {
   gender: PropTypes.string,
   age: PropTypes.number,
   animalId: PropTypes.number,
-  viewProfile: PropTypes.func
+  viewProfile: PropTypes.func,
+  currentProfile: PropTypes.object
 }
 
 export default Profile;
