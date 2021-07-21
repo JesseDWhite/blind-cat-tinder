@@ -29,6 +29,11 @@ export default (state = initialState, action) => {
         isLoading: false,
         selectedProfile: action.selectedProfile
       })
+    case c.BACK_TO_MAIN_PAGE:
+      return Object.assign({}, state, {
+        isLoading: false,
+        selectedProfile: null
+      });
     default:
       return state;
   }

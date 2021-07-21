@@ -25,6 +25,13 @@ class ProfileControl extends React.Component {
     dispatch(action);
   }
 
+  backToMainPage = () => {
+    const { dispatch } = this.props;
+    const action = a.backToMainPage();
+    dispatch(action);
+  }
+
+
   render() {
     let currentlyVisibleState = null;
     const { error, isLoading, selectedProfile, profiles } = this.props
@@ -37,6 +44,7 @@ class ProfileControl extends React.Component {
       currentlyVisibleState =
         <ProfileDetails
           profile={selectedProfile}
+          backToMainPage={this.backToMainPage}
         />;
     } else if (selectedProfile == null) {
       currentlyVisibleState = <ProfileList

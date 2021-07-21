@@ -12,6 +12,7 @@ function ProfileDetails(props) {
         <h4>{profile.gender} - {profile.age}</h4>
         <p>{profile.description}</p>
       </div>
+      <button className='btn btn-danger' onClick={() => props.backToMainPage()}>Back To Main Page</button>
     </React.Fragment>
   )
 }

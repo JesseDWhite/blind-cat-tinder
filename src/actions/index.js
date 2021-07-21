@@ -9,6 +9,10 @@ export const getProfilesSuccess = (profiles) => ({
   profiles
 });
 
+export const backToMainPage = () => ({
+  type: c.BACK_TO_MAIN_PAGE,
+});
+
 export const getProfilesFailure = (error) => ({
   type: c.GET_PROFILES_FAILURE,
   error
