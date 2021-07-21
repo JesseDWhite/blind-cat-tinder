@@ -10,7 +10,6 @@ class ProfileControl extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      // selectedProfile: null
     }
   }
 
@@ -25,15 +24,6 @@ class ProfileControl extends React.Component {
     const action = a.getProfile(animalProfile);
     dispatch(action);
   }
-
-  // viewProfile = (animalProfile) => {
-  //   console.log(animalProfile)
-  //   // Instead, we could pass animalObject (profile itself) to this function instead of just the ID. Then below, we could set selectedProfile to equal that entire object, instead of accessing the `this.props.profiles` (<-- undefined?) state with our id. 
-  //   // const selectedProfile = animalProfile // profile
-  //   this.setState({
-  //     selectedProfile: animalProfile
-  //   });
-  // }
 
   render() {
     let currentlyVisibleState = null;
